@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Bdeir.Quizzer.QuestionPickers</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MseeqU.Core\MseeqU.Core.csproj" />
+    <ProjectReference Include="..\Quiz\Quiz.csproj" />
+  </ItemGroup>
+
+</Project>

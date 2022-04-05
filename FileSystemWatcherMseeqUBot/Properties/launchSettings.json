@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FileSystemWatcherMseeqUBot": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Trash\\MseeqU Files\\CMPS 252\""
+    }
+  }
+}

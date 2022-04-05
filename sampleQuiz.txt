@@ -1,0 +1,10 @@
+*Which planet is closest to the sun?
+-Jupiter
+=Mercury
+-Neptune
+-Mars
+*Which planet is farthest from the sun?
+-Jupiter
+-Mercury
+=Neptune
+-Mars

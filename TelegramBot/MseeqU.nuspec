@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata>
+    <id>MseeqU</id>
+    <version>0.1.5</version>
+    <title>MseeqU</title>
+    <authors>Mahmoud Bdeir</authors>
+    <owners>Mahmoud Bdeir</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>images\quiz.png</icon>
+    <description>MCQ Quiz Maker with a Telegram Bot</description>
+    <summary>MCQ Quiz Maker with a Telegram Bot</summary>
+    <releaseNotes>Added Telegram Bot</releaseNotes>
+	<copyright>Copyright © Mahmoud Bdeir 2022</copyright>
+    <repository type="git" url="https://github.com/mbdeir/MseeqU.git" branch="main" commit="4fee74d32ff33c2a0654796cdd1b4f4f7ab6ced4" />
+	<dependencies>
+	  <dependency id="Telegram.Bot" version="17.0.0" />
+	</dependencies>
+  </metadata>
+  <files>
+    <file src="quiz.png" target="images\quiz.png" />
+  </files>
+</package>
