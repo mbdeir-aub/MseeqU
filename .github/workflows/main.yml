@@ -43,10 +43,10 @@ jobs:
         run: dotnet build MseeqU.sln --configuration Release --no-restore
       
       - name: Prepare NuGet package
-        run: nuget pack MseeqU/MseeqU.csproj -IncludeReferencedProjects
+        run: nuget pack TelegramBot\MseeqU.nuspec -IncludeReferencedProjects
         
       - name: Publish
         if: startswith(github.ref, 'refs/heads/release')
-        run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json'
+        run: nuget push MseeqU.0.1.6.nupkg -Source 'https://api.nuget.org/v3/index.json'
 
         
