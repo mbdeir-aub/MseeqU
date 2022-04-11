@@ -34,6 +34,11 @@ namespace Bdeir.Quizzer.Bots
                 , options: q.ShuffledAnswers.Select(p => p.AnswerText)
                 , correctOptionId: q.ShuffledAnswers.FindIndex(p => p.Correct)
             ).Result;
+            
+        }
+        public Message SendText(string text)
+        {
+            return botClient.SendTextMessageAsync(chatId: this.botChannelId, text: text).Result;
         }
         public static string ToIndic(int num)
         {
