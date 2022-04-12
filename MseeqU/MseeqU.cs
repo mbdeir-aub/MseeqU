@@ -3,6 +3,7 @@ using Bdeir.FileStorage;
 using Bdeir.Quizzer.Core;
 using Bdeir.Quizzer.Parsers;
 using Bdeir.Quizzer.QuestionPickers;
+using System.Linq;
 
 namespace Bdeir.Quizzer
 {
@@ -18,9 +19,13 @@ namespace Bdeir.Quizzer
             IParser parser = new MultiLineQuizParser(parserConfig);
 #endif
             IQuiz quiz = new QuizFactory().CreateQuizFromFile(azureStorageConfig.QuizFileEnvVar, quizStorage, parser);
-
-            string ProgressFileName = azureStorageConfig.QuizFileEnvVar + ".progress";
-            IStorage progressStorage = new AzureStorage((AzureStorageConfig)storageConfig);
+            string ProgressFileName = null;
+            IStorage progressStorage = null;
+            if (quiz.Questions.Count() > 1)
+            {
+                ProgressFileName = azureStorageConfig.QuizFileEnvVar + ".progress";
+                progressStorage = new AzureStorage((AzureStorageConfig)storageConfig);
+            }
             IQuestionPicker picker = new RandomQuestionPicker(quiz, progressStorage, ProgressFileName, autoRestartOptions, repeatQuestionOptions);
             return picker;
         }
@@ -35,9 +40,13 @@ namespace Bdeir.Quizzer
             IParser parser = new MultiLineQuizParser(parserConfig);
 #endif
             IQuiz quiz = new QuizFactory().CreateQuizFromFile(localStorageConfig.QuizFileEnvVar, quizStorage, parser);
-
-            string ProgressFileName = localStorageConfig.QuizFileEnvVar + ".progress";
-            IStorage progressStorage = new LocalStorage((LocalStorageConfig)storageConfig);
+            string ProgressFileName = null;
+            IStorage progressStorage = null;
+            if (quiz.Questions.Count() > 1)
+            {
+                ProgressFileName = localStorageConfig.QuizFileEnvVar + ".progress";
+                progressStorage = new LocalStorage((LocalStorageConfig)storageConfig);
+            }
             IQuestionPicker picker = new RandomQuestionPicker(quiz, progressStorage, ProgressFileName, autoRestartOptions, repeatQuestionOptions);
             return picker;
         }

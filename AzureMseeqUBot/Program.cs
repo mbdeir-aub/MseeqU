@@ -10,7 +10,7 @@ namespace QuizzerBot
 {
     class Program
     {
-        static readonly string QUIZ_FILE = Environment.GetEnvironmentVariable("QuizFile");
+        static  string QUIZ_FILE = Environment.GetEnvironmentVariable("QuizFile");
         static readonly string AZURE_STORAGE_CONNECTION_STRING = Environment.GetEnvironmentVariable("Storage_ConnectionString");
         static readonly string AZURE_CONTAINER_NAME = Environment.GetEnvironmentVariable("Storage_Container");
 
@@ -27,6 +27,7 @@ namespace QuizzerBot
         {
 
             #region Method 1
+            QUIZ_FILE = "2022-04-12.txt";
             IQuestionPicker mcq = Bdeir.Quizzer.MseeqU.CreateAzureQuiz(QUIZ_FILE, AZURE_STORAGE_CONNECTION_STRING, AZURE_CONTAINER_NAME, QUESTION_PREFIX, CORRECT_ANSWER_PREFIX, WRONG_ANSWER_PREFIX, AUTO_RESTART, QUESTIONS_CAN_REPEAT);
             IQuestion question = mcq.Next(); 
             #endregion
@@ -36,6 +37,8 @@ namespace QuizzerBot
             var parserConfig = new ParserConfig(QUESTION_PREFIX, CORRECT_ANSWER_PREFIX, WRONG_ANSWER_PREFIX);
             var storage = new AzureStorage(storageConfig);
             IQuiz quiz = new QuizFactory().CreateQuizFromFile(QUIZ_FILE, storage, new SingleLineQuizParser(parserConfig));
+            string destination = $"completed/{37,3:D3}- {QUIZ_FILE}";
+            storage.Move(QUIZ_FILE, destination);
             #endregion
 #if LIVE
             TelegramBot bot = new TelegramBot(BOT_TOKEN, BOT_CHANNEL_ID);

@@ -20,7 +20,11 @@ namespace Bdeir.Quizzer.QuestionPickers
 
         public override IQuestion Next()
         {
-            if (UnsentNumbers.Count == 0) return null;
+            if (UnsentNumbers == null)
+            {
+                return base.Quiz.Questions.ElementAt(0);
+            }
+            if(UnsentNumbers.Count == 0) return null;
             int QuestionIndexNumber = UnsentNumbers[rnd.Next(0, UnsentNumbers.Count)];
             var Question = base.Quiz.Questions.ElementAt(QuestionIndexNumber);
             return Question;

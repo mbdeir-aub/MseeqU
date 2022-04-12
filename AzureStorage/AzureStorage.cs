@@ -59,7 +59,7 @@ namespace Bdeir.FileStorage
         {
             var targetBlobClient = container.GetBlobClient(destination);
             var blobUri          = new Uri($"{container.Uri}/{blobName}");
-            targetBlobClient.StartCopyFromUriAsync(blobUri);
+            targetBlobClient.StartCopyFromUriAsync(blobUri).Wait();
         }
 
         public override bool Exists(string blobName)

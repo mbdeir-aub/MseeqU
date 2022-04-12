@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
   <metadata>
     <id>MseeqU</id>
-    <version>0.1.11</version>
+    <version>0.1.12</version>
     <title>MseeqU</title>
     <authors>Mahmoud Bdeir</authors>
     <owners>Mahmoud Bdeir</owners>
@@ -11,7 +11,13 @@
     <icon>packageIcon.png</icon>
     <description>MCQ Quiz Maker with a Telegram Bot</description>
     <summary>MCQ Quiz Maker with a Telegram Bot</summary>
-    <releaseNotes>New Feature:TelegramBot can send text message in addition to a quiz.</releaseNotes>
+    <releaseNotes>
+		Bug Fix:
+		- Move file (AzureStorage.Move()) was not awaited.
+
+		Enhancements:
+		- Will not create a .progress file when the file has only one question
+	</releaseNotes>
 	<copyright>Copyright © Mahmoud Bdeir 2022</copyright>
     <repository type="git" url="https://github.com/mahmoudbdeir/MseeqU.git" branch="main" commit="65562e62925453d745359bc34fe8f551a4995dd3" />
 	<dependencies>

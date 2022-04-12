@@ -7,13 +7,14 @@ namespace Bdeir.Quizzer.Core
     {
         public BaseQuestionPicker(IQuiz quiz, IStorage progressStorage, string progressFile, AutoRestartOptions autoRestartOptions, RepeatQuestionOptions repeatQuestionOptions)
         {
-            this.Quiz                  = quiz;
-            this.ProgressStorage       = progressStorage;
-            this.ProgressFile          = progressFile;
-            this.AutoRestartOptions    = autoRestartOptions;
+            this.Quiz = quiz;
+            this.ProgressStorage = progressStorage;
+            this.ProgressFile = progressFile;
+            this.AutoRestartOptions = autoRestartOptions;
             this.RepeatQuestionOptions = repeatQuestionOptions;
-            
-            if (!progressStorage.Exists(progressFile) || (this.AutoRestartOptions== AutoRestartOptions.AutoRestart && string.IsNullOrWhiteSpace(progressStorage.Read(progressFile))))
+
+            if (progressStorage == null) return;
+            if (progressFile != null && !progressStorage.Exists(progressFile) || (this.AutoRestartOptions == AutoRestartOptions.AutoRestart && string.IsNullOrWhiteSpace(progressStorage.Read(progressFile))))
             {
                 progressStorage.Write(progressFile, string.Join(",", Enumerable.Range(0, quiz.Questions.Count())));
             }
