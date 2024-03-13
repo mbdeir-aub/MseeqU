@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata>
+    <id>MseeqU</id>
+    <version>0.1.12</version>
+    <title>MseeqU</title>
+    <authors>Mahmoud Bdeir</authors>
+    <owners>Mahmoud Bdeir</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>packageIcon.png</icon>
+    <description>MCQ Quiz Maker with a Telegram Bot</description>
+    <summary>MCQ Quiz Maker with a Telegram Bot</summary>
+    <releaseNotes>
+		Bug Fix:
+		- Move file (AzureStorage.Move()) was not awaited.
+
+		Enhancements:
+		- Will not create a .progress file when the file has only one question
+	</releaseNotes>
+	<copyright>Copyright © Mahmoud Bdeir 2022</copyright>
+    <repository type="git" url="https://github.com/mahmoudbdeir/MseeqU.git" branch="main" commit="65562e62925453d745359bc34fe8f551a4995dd3" />
+	<dependencies>
+	  <dependency id="Telegram.Bot" version="17.0.0" /> 
+	</dependencies>
+  </metadata>
+  <files>
+    <file src="quiz.png" target="packageIcon.png" />
+	<file src=".\bin\Release\net5.0\TelegramBot.dll" target="lib\net5.0\TelegramBot.dll" />
+	<file src=".\bin\Release\net5.0\MseeqU.Core.dll" target="lib\net5.0\MseeqU.Core.dll" />
+	<file src=".\bin\Release\net5.0\AzureStorage.dll" target="lib\net5.0\AzureStorage.dll" />
+	<file src=".\bin\Release\net5.0\LocalStorage.dll" target="lib\net5.0\LocalStorage.dll" />
+	<file src=".\bin\Release\net5.0\MseeqU.dll" target="lib\net5.0\MseeqU.dll" />
+	<file src=".\bin\Release\net5.0\QuizFactory.dll" target="lib\net5.0\QuizFactory.dll" />
+	<file src=".\bin\Release\net5.0\RandomQuestionPicker.dll" target="lib\net5.0\RandomQuestionPicker.dll" />
+	<file src=".\bin\Release\net5.0\SingleLineParser.dll" target="lib\net5.0\SingleLineParser.dll" />
+	<file src=".\bin\Release\net5.0\Quiz.dll" target="lib\net5.0\Quiz.dll" />
+  </files>
+</package>
